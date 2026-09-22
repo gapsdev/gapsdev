@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-paper text-ink antialiased transition-colors duration-300 dark:bg-[#171916] dark:text-[#f4f1eb]; }
+::selection { @apply bg-peach text-white; }
+.grid-lines { background-image: linear-gradient(to right, rgba(104,94,79,.11) 1px, transparent 1px), linear-gradient(to bottom, rgba(104,94,79,.11) 1px, transparent 1px); background-size: 36px 36px; }
+.dark .grid-lines { background-image: linear-gradient(to right, rgba(244,241,235,.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(244,241,235,.07) 1px, transparent 1px); }
+.image-hover img { transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+.image-hover:hover img { transform: scale(1.05); }
