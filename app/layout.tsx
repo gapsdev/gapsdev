@@ -6,8 +6,8 @@ const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  title: "Nina Hart — Digital Designer",
-  description: "Portfolio of Nina Hart, an independent designer and art director.",
+  title: "gapsdev — Independent Developer",
+  description: "Portfolio of gapsdev, an independent developer building useful digital products.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
