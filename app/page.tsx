@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const projects = [
   { company: "Oracle NetSuite", location: "Makati, PH", role: "Web Design Specialist", period: "Aug 2021 — Present", highlights: ["Designed and optimized responsive web pages and digital assets aligned with Oracle NetSuite standards.", "Collaborated with marketing and product teams on layouts and campaign materials.", "Managed updates, QA, and content enhancements for performance and consistency."] },
@@ -12,13 +12,10 @@ const projects = [
 function Arrow() { return <span aria-hidden="true" className="ml-2 inline-block text-xl transition-transform group-hover:translate-x-1">↗</span>; }
 
 export default function Home() {
-  const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  useEffect(() => { const stored = localStorage.getItem("theme"); const useDark = stored ? stored === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches; setDark(useDark); document.documentElement.classList.toggle("dark", useDark); }, []);
-  const changeTheme = () => { const next = !dark; setDark(next); document.documentElement.classList.toggle("dark", next); localStorage.setItem("theme", next ? "dark" : "light"); };
   return <main className="overflow-hidden">
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-paper/85 px-6 py-4 backdrop-blur-md dark:border-white/10 dark:bg-[#171916]/85 md:px-12">
-      <div className="mx-auto flex max-w-7xl items-center justify-between"><a href="#top" className="font-serif text-2xl font-bold tracking-tight">gapsdev<span className="text-peach">.</span></a><div className="hidden items-center gap-8 text-xs font-bold uppercase tracking-[.14em] md:flex"><a href="#work" className="hover:text-peach">Work</a><a href="#about" className="hover:text-peach">About</a><a href="#contact" className="hover:text-peach">Contact</a></div><div className="flex items-center gap-4"><button onClick={changeTheme} aria-label="Toggle color theme" className="grid h-9 w-9 place-items-center rounded-full border border-ink/15 text-sm dark:border-white/20">{dark ? "☼" : "◐"}</button><button onClick={() => setMenuOpen(!menuOpen)} className="text-xs font-bold uppercase tracking-widest md:hidden">Menu</button></div></div>
+      <div className="mx-auto flex max-w-7xl items-center justify-between"><a href="#top" className="font-serif text-2xl font-bold tracking-tight">gapsdev<span className="text-peach">.</span></a><div className="hidden items-center gap-8 text-xs font-bold uppercase tracking-[.14em] md:flex"><a href="#work" className="hover:text-peach">Work</a><a href="#about" className="hover:text-peach">About</a><a href="#contact" className="hover:text-peach">Contact</a></div><button onClick={() => setMenuOpen(!menuOpen)} className="text-xs font-bold uppercase tracking-widest md:hidden">Menu</button></div>
       {menuOpen && <div className="flex flex-col gap-4 pt-5 text-sm font-bold uppercase tracking-widest md:hidden"><a onClick={() => setMenuOpen(false)} href="#work">Work</a><a onClick={() => setMenuOpen(false)} href="#about">About</a><a onClick={() => setMenuOpen(false)} href="#contact">Contact</a></div>}
     </nav>
 

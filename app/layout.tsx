@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Montserrat, Roboto } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const roboto = Roboto({ subsets: ["latin"], variable: "--font-manrope", weight: "400" });
+const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-playfair", weight: "400" });
 
 export const metadata: Metadata = {
   title: "Sheera Mae Beltran — Front-end Developer",
@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" suppressHydrationWarning><body className={`${manrope.variable} ${playfair.variable}`}>{children}</body></html>;
+  return <html lang="en" className="dark"><body className={`${roboto.variable} ${montserrat.variable}`}>{children}</body></html>;
 }
